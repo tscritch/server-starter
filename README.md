@@ -3,6 +3,7 @@
 ### Getting Started
 
 1. Run `cp example.env .env` and fill out the missing vars in `.env`
+1. Find and replace `server-starter` with your project name.
 1. Run `yarn`
 1. Run `docker-compose up -d` to start the database in the background
 1. If setting up the project for the first time run `npx prisma migrate dev` to apply the migrations to your local database
