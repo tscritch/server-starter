@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:13.8-alpine
+    restart: unless-stopped
+    ports:
+      - "5200:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: server-starter
+      POSTGRES_PASSWORD: server-starter
+      POSTGRES_DB: server-starter
+
+volumes:
+  postgres_data:
