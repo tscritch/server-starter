@@ -13,6 +13,7 @@ import { config } from "./config";
 import { checkJwt, checkJwtLocal } from "./_utils/jwt";
 import { checkAuthSecret } from "./_utils/auth";
 import { prisma } from "./prisma";
+import { Log } from "./_utils/logger";
 
 const typeDefs = fs.readFileSync(
   path.join(__dirname, "/schema.graphql"),
@@ -60,9 +61,7 @@ async function startApolloServer() {
   await new Promise<void>((resolve) =>
     httpServer.listen({ port: config.server.port }, resolve)
   );
-  console.log(
-    `🚀 Server ready at http://localhost:${config.server.port}/graphql`
-  );
+  Log.info(`🚀 Server ready at http://localhost:${config.server.port}/graphql`);
 }
 
 startApolloServer();
